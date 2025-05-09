@@ -6,7 +6,8 @@ export default defineConfig({
   server: {
     allowedHosts: [
       'localhost',
-      '4tsxhm-5173.csb.app'
+      '4tsxhm-5173.csb.app',
+      'nrvcvp-5173.csb.app'
     ]
   }
 }); 
