@@ -1,0 +1,11 @@
+{
+    "livePreview.defaultPreviewPath": "./",
+    "livePreview.port": 3000,
+    "livePreview.autoRefreshPreview": true,
+    "livePreview.useLocalIp": true,
+    "livePreview.proxy": {
+        "enable": true,
+        "baseUri": "/",
+        "proxyUri": "http://localhost:3000"
+    }
+} 

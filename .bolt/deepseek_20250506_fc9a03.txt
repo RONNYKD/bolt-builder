@@ -1,0 +1,48 @@
+
+---
+
+## 🎯 **Feature Implementation Guide**  
+
+### 1. **Project Import & Templates**  
+**Files to Modify:**  
+- `AIBuilderPage.tsx` (UI), `templateService.ts` (logic)  
+**Rules:**  
+- Fetch templates from `/public/templates/[template-name]/` if local.  
+- On import, auto-run `npm install` in terminal.  
+- Use Zustand action: `useTemplateStore.setActiveTemplate()`.  
+
+### 2. **Enhanced File Tree**  
+**Components:**  
+- `FileTree.tsx` (DnD logic), `FileSearch.tsx` (search bar)  
+**Rules:**  
+- AST-based import updates via `@monaco-editor/worker`.  
+- Right-click menu actions must update Zustand state (`useFileStore`).  
+
+### 3. **Real Terminal**  
+**Integration:**  
+- Backend: Node.js microservice with `express-ws` for WebSocket.  
+- Frontend: `XTermTerminal.tsx` component with WebSocket hooks.  
+**Security:**  
+- Block unsafe commands (e.g., `rm`, `sudo`).  
+
+### 4. **Deployment Status**  
+**APIs:**  
+- Netlify: Fetch status via `/.netlify/functions/deployments`.  
+- UI: `DeploymentBadge.tsx` (top bar), `useDeployment` hook.  
+
+### 5. **Command History**  
+**Persistence:**  
+- Save history to `localStorage` with key `bolt-command-history`.  
+- Zustand store: `useHistoryStore.logCommand(type: "AI" | "TERMINAL")`.  
+
+---
+
+## 📜 **Code Generation Rules**  
+
+### 1. **File Structure Compliance**  
+```javascript
+// BAD: Loose component in /src
+import { Button } from "../Button"; 
+
+// GOOD: Use absolute paths
+import { Button } from "@/components/Button";
